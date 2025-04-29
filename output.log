@@ -1,0 +1,1341 @@
+nohup: ignoring input
+time="2025-04-29T12:35:26Z" level=warning msg="/root/Budget-App/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Network budget-app_default  Creating
+ Network budget-app_default  Created
+ Volume "budget-app_db_data"  Creating
+ Volume "budget-app_db_data"  Created
+ Container budget-app-db-1  Creating
+ Container budget-app-db-1  Created
+ Container budget-app-web-1  Creating
+ Container budget-app-web-1  Created
+Attaching to db-1, web-1
+db-1   | The files belonging to this database system will be owned by user "postgres".
+db-1   | This user must also own the server process.
+db-1   | 
+db-1   | The database cluster will be initialized with locale "en_US.utf8".
+db-1   | The default database encoding has accordingly been set to "UTF8".
+db-1   | The default text search configuration will be set to "english".
+db-1   | 
+db-1   | Data page checksums are disabled.
+db-1   | 
+db-1   | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1   | creating subdirectories ... ok
+db-1   | selecting dynamic shared memory implementation ... posix
+db-1   | selecting default max_connections ... 100
+db-1   | selecting default shared_buffers ... 128MB
+db-1   | selecting default time zone ... Etc/UTC
+db-1   | creating configuration files ... ok
+db-1   | running bootstrap script ... ok
+web-1  | db:5432 - no response
+web-1  | Waiting for PostgreSQL...
+db-1   | performing post-bootstrap initialization ... ok
+db-1   | syncing data to disk ... ok
+db-1   | 
+db-1   | 
+db-1   | Success. You can now start the database server using:
+db-1   | 
+db-1   |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1   | 
+db-1   | initdb: warning: enabling "trust" authentication for local connections
+db-1   | You can change this by editing pg_hba.conf or using the option -A, or
+db-1   | --auth-local and --auth-host, the next time you run initdb.
+db-1   | waiting for server to start....2025-04-29 12:35:28.217 UTC [48] LOG:  starting PostgreSQL 14.17 (Debian 14.17-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1   | 2025-04-29 12:35:28.220 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1   | 2025-04-29 12:35:28.229 UTC [49] LOG:  database system was shut down at 2025-04-29 12:35:28 UTC
+db-1   | 2025-04-29 12:35:28.235 UTC [48] LOG:  database system is ready to accept connections
+db-1   |  done
+db-1   | server started
+db-1   | CREATE DATABASE
+db-1   | 
+db-1   | 
+db-1   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1   | 
+db-1   | 2025-04-29 12:35:28.445 UTC [48] LOG:  received fast shutdown request
+db-1   | waiting for server to shut down....2025-04-29 12:35:28.448 UTC [48] LOG:  aborting any active transactions
+db-1   | 2025-04-29 12:35:28.451 UTC [48] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+db-1   | 2025-04-29 12:35:28.452 UTC [50] LOG:  shutting down
+db-1   | 2025-04-29 12:35:28.471 UTC [48] LOG:  database system is shut down
+db-1   |  done
+db-1   | server stopped
+db-1   | 
+db-1   | PostgreSQL init process complete; ready for start up.
+db-1   | 
+db-1   | 2025-04-29 12:35:28.572 UTC [1] LOG:  starting PostgreSQL 14.17 (Debian 14.17-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1   | 2025-04-29 12:35:28.572 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1   | 2025-04-29 12:35:28.572 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1   | 2025-04-29 12:35:28.578 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1   | 2025-04-29 12:35:28.586 UTC [63] LOG:  database system was shut down at 2025-04-29 12:35:28 UTC
+db-1   | 2025-04-29 12:35:28.592 UTC [1] LOG:  database system is ready to accept connections
+web-1  | db:5432 - accepting connections
+web-1  | Bundle complete! 20 Gemfile dependencies, 92 gems now installed.
+web-1  | Use `bundle info [gemname]` to see where a bundled gem is installed.
+web-1  | 1 installed gem you directly depend on is looking for funding.
+web-1  |   Run `bundle fund` for details
+db-1   | 2025-04-29 12:35:34.300 UTC [71] ERROR:  database "Budgy_development" already exists
+db-1   | 2025-04-29 12:35:34.300 UTC [71] STATEMENT:  CREATE DATABASE "Budgy_development" ENCODING = 'unicode'
+web-1  | Database 'Budgy_development' already exists
+web-1  | Created database 'Budgy_test'
+web-1  | == 20220131150512 CreateUsers: migrating ======================================
+web-1  | -- create_table(:users)
+web-1  |    -> 0.0115s
+web-1  | == 20220131150512 CreateUsers: migrated (0.0116s) =============================
+web-1  | 
+web-1  | == 20220131213834 AddDeviseToUsers: migrating =================================
+web-1  | -- change_table(:users)
+web-1  |    -> 0.0423s
+web-1  | -- add_index(:users, :email, {:unique=>true})
+web-1  |    -> 0.0091s
+web-1  | -- add_index(:users, :reset_password_token, {:unique=>true})
+web-1  |    -> 0.0076s
+web-1  | == 20220131213834 AddDeviseToUsers: migrated (0.0591s) ========================
+web-1  | 
+web-1  | == 20220216210359 CreateCategories: migrating =================================
+web-1  | -- create_table(:categories)
+web-1  |    -> 0.0250s
+web-1  | == 20220216210359 CreateCategories: migrated (0.0250s) ========================
+web-1  | 
+web-1  | == 20220216211616 CreateActiveStorageTables: migrating ========================
+web-1  | -- create_table(:active_storage_blobs, {:id=>:primary_key})
+web-1  |    -> 0.0146s
+web-1  | -- create_table(:active_storage_attachments, {:id=>:primary_key})
+web-1  |    -> 0.0198s
+web-1  | -- create_table(:active_storage_variant_records, {:id=>:primary_key})
+web-1  |    -> 0.0138s
+web-1  | == 20220216211616 CreateActiveStorageTables: migrated (0.0484s) ===============
+web-1  | 
+web-1  | == 20220217172915 CreateRecords: migrating ====================================
+web-1  | -- create_table(:records)
+web-1  |    -> 0.0144s
+web-1  | == 20220217172915 CreateRecords: migrated (0.0144s) ===========================
+web-1  | 
+web-1  | == 20220218082404 CreateCategoryRecords: migrating ============================
+web-1  | -- create_table(:category_records)
+web-1  |    -> 0.0172s
+web-1  | == 20220218082404 CreateCategoryRecords: migrated (0.0172s) ===================
+web-1  | 
+web-1  | => Booting Puma
+web-1  | => Rails 7.0.1 application starting in development 
+web-1  | => Run `bin/rails server --help` for more startup options
+web-1  | Puma starting in single mode...
+web-1  | * Puma version: 5.6.1 (ruby 3.1.2-p20) ("Birdie's Version")
+web-1  | *  Min threads: 5
+web-1  | *  Max threads: 5
+web-1  | *  Environment: development
+web-1  | *          PID: 1
+web-1  | * Listening on http://0.0.0.0:3000
+web-1  | Use Ctrl-C to stop
+web-1  | - Gracefully stopping, waiting for requests to finish
+web-1  | Exiting
+[Kweb-1 exited with code 1
+[Kweb-1 has been recreated
+web-1  | db:5432 - accepting connections
+web-1  | Bundle complete! 20 Gemfile dependencies, 92 gems now installed.
+web-1  | Use `bundle info [gemname]` to see where a bundled gem is installed.
+web-1  | 1 installed gem you directly depend on is looking for funding.
+web-1  |   Run `bundle fund` for details
+db-1   | 2025-04-29 12:40:46.881 UTC [85] ERROR:  database "Budgy_development" already exists
+db-1   | 2025-04-29 12:40:46.881 UTC [85] STATEMENT:  CREATE DATABASE "Budgy_development" ENCODING = 'unicode'
+web-1  | Database 'Budgy_development' already exists
+db-1   | 2025-04-29 12:40:46.898 UTC [86] ERROR:  database "Budgy_test" already exists
+db-1   | 2025-04-29 12:40:46.898 UTC [86] STATEMENT:  CREATE DATABASE "Budgy_test" ENCODING = 'unicode'
+web-1  | Database 'Budgy_test' already exists
+web-1  | => Booting Puma
+web-1  | => Rails 7.0.1 application starting in development 
+web-1  | => Run `bin/rails server --help` for more startup options
+web-1  | Puma starting in single mode...
+web-1  | * Puma version: 5.6.1 (ruby 3.1.2-p20) ("Birdie's Version")
+web-1  | *  Min threads: 5
+web-1  | *  Max threads: 5
+web-1  | *  Environment: development
+web-1  | *          PID: 1
+web-1  | * Listening on http://0.0.0.0:3000
+web-1  | Use Ctrl-C to stop
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 12:41:04 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  |   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 896)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 299.2ms | Allocations: 107602)
+web-1  | Completed 200 OK in 328ms (Views: 307.7ms | ActiveRecord: 0.0ms | Allocations: 117192)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started GET "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:41:15 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 1390)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.1ms | Allocations: 9283)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 11500)
+web-1  | Completed 200 OK in 43ms (Views: 23.4ms | ActiveRecord: 3.9ms | Allocations: 27097)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 12:41:25 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2137)
+web-1  | Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 2450)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:42:40 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 130)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 785)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2805)
+web-1  | Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 3450)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:46:21 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  | Completed 401 Unauthorized in 8ms (ActiveRecord: 0.9ms | Allocations: 4026)
+web-1  | 
+web-1  | 
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 134)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 896)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3021)
+web-1  | Completed 200 OK in 294ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 5066)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started POST "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:46:44 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  | Completed 401 Unauthorized in 5ms (ActiveRecord: 0.3ms | Allocations: 1640)
+web-1  | 
+web-1  | 
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 130)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 750)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2774)
+web-1  | Completed 200 OK in 286ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 3303)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started POST "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:47:01 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  | Completed 401 Unauthorized in 4ms (ActiveRecord: 0.3ms | Allocations: 1476)
+web-1  | 
+web-1  | 
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 130)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 750)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 2761)
+web-1  | Completed 200 OK in 287ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 3278)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started POST "/users/sign_in" for 157.47.4.98 at 2025-04-29 12:48:50 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  | Completed 401 Unauthorized in 3ms (ActiveRecord: 0.3ms | Allocations: 1473)
+web-1  | 
+web-1  | 
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 130)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 750)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 2774)
+web-1  | Completed 200 OK in 286ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3291)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 12:53:46 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 106)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2143)
+web-1  | Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2417)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/users/sign_up" for 157.47.4.98 at 2025-04-29 12:53:49 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#new as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/registrations/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 385)
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 310)
+web-1  |   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3552)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 5770)
+web-1  | Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 7402)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/users" for 157.47.4.98 at 2025-04-29 12:54:28 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ram", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up"}
+web-1  | [31mUnpermitted parameter: :posts_counter. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f2785712830>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ram", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+web-1  |   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+web-1  |   [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/registrations/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 584)
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 81)
+web-1  |   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2383)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4404)
+web-1  | Completed 200 OK in 295ms (Views: 6.7ms | ActiveRecord: 1.3ms | Allocations: 10512)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started POST "/users" for 157.47.4.98 at 2025-04-29 12:55:02 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ram", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up"}
+web-1  | [31mUnpermitted parameter: :posts_counter. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f278dcc91b8>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ram", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+web-1  |   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+web-1  |   [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  |   [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "ram"], ["created_at", "2025-04-29 12:55:02.446823"], ["updated_at", "2025-04-29 12:55:02.446823"], ["email", "ramakrishnaragi1999@gmail.com"], ["encrypted_password", "$2a$12$xSec0p5t5Lkn1IvuU8alVebOi6vlVLFu2hp4d7zfR49ZyoTVnuAlG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil]]
+web-1  |   [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+web-1  | Redirected to http://43.204.150.89:3000/
+web-1  | Completed 302 Found in 294ms (ActiveRecord: 2.5ms | Allocations: 7229)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 12:55:02 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  | Processing by CategoriesController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3559)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5807)
+web-1  | Completed 200 OK in 43ms (Views: 11.4ms | ActiveRecord: 1.9ms | Allocations: 24625)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started GET "/categories/new" for 157.47.4.98 at 2025-04-29 12:56:07 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#new as HTML
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/new.html.erb within layouts/application
+web-1  |   Rendered categories/_form.html.erb (Duration: 7.9ms | Allocations: 4067)
+web-1  |   Rendered categories/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4558)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 6709)
+web-1  | Completed 200 OK in 21ms (Views: 13.4ms | ActiveRecord: 1.6ms | Allocations: 11423)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories" for 157.47.4.98 at 2025-04-29 12:59:23 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"CLOTHES", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f27855ea4a8 @tempfile=#<Tempfile:/tmp/RackMultipart20250429-1-ppdt5b.crdownload>, @original_filename="Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"category[image]\"; filename=\"Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"save"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "CLOTHES"], ["user_id", 1], ["created_at", "2025-04-29 12:59:23.637629"], ["updated_at", "2025-04-29 12:59:23.637629"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "hsriyjirm0cjksl243s8k6onl0b5"], ["filename", "Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 445460], ["checksum", "xkipVbDid4RQKTahFOKh7g=="], ["created_at", "2025-04-29 12:59:23.676180"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Create (1.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Category"], ["record_id", 1], ["blob_id", 1], ["created_at", "2025-04-29 12:59:23.678718"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Update (1.8ms)[0m  [1m[33mUPDATE "categories" SET "updated_at" = $1 WHERE "categories"."id" = $2[0m  [["updated_at", "2025-04-29 12:59:23.681505"], ["id", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  | [36m  Disk Storage (1.5ms) [0m[32mUploaded file to key: hsriyjirm0cjksl243s8k6onl0b5 (checksum: xkipVbDid4RQKTahFOKh7g==)[0m
+web-1  | [ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e727e40b-a8f2-4303-8f96-33a67faddaf6) to Async(default) with arguments: #<GlobalID:0x00007f27853b4e68 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/1>>
+web-1  | Redirected to http://43.204.150.89:3000/categories
+web-1  | Completed 302 Found in 93ms (ActiveRecord: 13.9ms | Allocations: 48988)
+web-1  | 
+web-1  | 
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6]   [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6] Performing ActiveStorage::AnalyzeJob (Job ID: e727e40b-a8f2-4303-8f96-33a67faddaf6) from Async(default) enqueued at 2025-04-29T12:59:23Z with arguments: #<GlobalID:0x00007f278537e9f8 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/1>>
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6] [36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: hsriyjirm0cjksl243s8k6onl0b5[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6] Skipping image analysis because the ruby-vips gem isn't installed
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6]   [1m[36mActiveStorage::Blob Update (0.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6]   [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [e727e40b-a8f2-4303-8f96-33a67faddaf6] Performed ActiveStorage::AnalyzeJob (Job ID: e727e40b-a8f2-4303-8f96-33a67faddaf6) from Async(default) in 19.12ms
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 12:59:23 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as TURBO_STREAM
+web-1  |   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.9ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 22.0ms | Allocations: 11859)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 13266)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 15399)
+web-1  | Completed 200 OK in 42ms (Views: 29.4ms | ActiveRecord: 7.0ms | Allocations: 17725)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0a0ca208bbe5ebf1c0a5f7dbd3ea8a55026b7286/Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload" for 157.47.4.98 at 2025-04-29 12:59:24 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::Blobs::RedirectController#show as */*
+web-1  |   Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0a0ca208bbe5ebf1c0a5f7dbd3ea8a55026b7286", "filename"=>"Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg"}
+web-1  |   [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  | [36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: hsriyjirm0cjksl243s8k6onl0b5 (http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhSE55YVhscWFYSnRNR05xYTNOc01qUXpjemhyTm05dWJEQmlOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWdvQmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVEyRnpkV0ZzTFVoaGQyRnBhV0Z1TFZOb2FYSjBjeTFOWlc0dFEyOTBkRzl1TFV4cGJtVnVMVVJsYzJsbmJtVnlMVUp5WVc1a0xWTnNhVzB0Um1sMExVMWhiaTFUYUdseWRITXRURzl1WnkxVGJHVmxkbVV0VjJocGRHVXRVMmhwY25SekxtcHdaeTVqY21SdmQyNXNiMkZrSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkRFlYTjFZV3d0U0dGM1lXbHBZVzR0VTJocGNuUnpMVTFsYmkxRGIzUjBiMjR0VEdsdVpXNHRSR1Z6YVdkdVpYSXRRbkpoYm1RdFUyeHBiUzFHYVhRdFRXRnVMVk5vYVhKMGN5MU1iMjVuTFZOc1pXVjJaUzFYYUdsMFpTMVRhR2x5ZEhNdWFuQm5MbU55Wkc5M2JteHZZV1FHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjUtMDQtMjlUMTM6MDQ6MjQuMDcxWiIsInB1ciI6ImJsb2Jfa2V5In19--355429626fa2a0886f9a0a3cfa821c4e38da3b1a/Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload)[0m
+web-1  | Redirected to http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhSE55YVhscWFYSnRNR05xYTNOc01qUXpjemhyTm05dWJEQmlOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWdvQmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVEyRnpkV0ZzTFVoaGQyRnBhV0Z1TFZOb2FYSjBjeTFOWlc0dFEyOTBkRzl1TFV4cGJtVnVMVVJsYzJsbmJtVnlMVUp5WVc1a0xWTnNhVzB0Um1sMExVMWhiaTFUYUdseWRITXRURzl1WnkxVGJHVmxkbVV0VjJocGRHVXRVMmhwY25SekxtcHdaeTVqY21SdmQyNXNiMkZrSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkRFlYTjFZV3d0U0dGM1lXbHBZVzR0VTJocGNuUnpMVTFsYmkxRGIzUjBiMjR0VEdsdVpXNHRSR1Z6YVdkdVpYSXRRbkpoYm1RdFUyeHBiUzFHYVhRdFRXRnVMVk5vYVhKMGN5MU1iMjVuTFZOc1pXVjJaUzFYYUdsMFpTMVRhR2x5ZEhNdWFuQm5MbU55Wkc5M2JteHZZV1FHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjUtMDQtMjlUMTM6MDQ6MjQuMDcxWiIsInB1ciI6ImJsb2Jfa2V5In19--355429626fa2a0886f9a0a3cfa821c4e38da3b1a/Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload
+web-1  | Completed 302 Found in 8ms (ActiveRecord: 0.8ms | Allocations: 2711)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhSE55YVhscWFYSnRNR05xYTNOc01qUXpjemhyTm05dWJEQmlOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWdvQmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVEyRnpkV0ZzTFVoaGQyRnBhV0Z1TFZOb2FYSjBjeTFOWlc0dFEyOTBkRzl1TFV4cGJtVnVMVVJsYzJsbmJtVnlMVUp5WVc1a0xWTnNhVzB0Um1sMExVMWhiaTFUYUdseWRITXRURzl1WnkxVGJHVmxkbVV0VjJocGRHVXRVMmhwY25SekxtcHdaeTVqY21SdmQyNXNiMkZrSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkRFlYTjFZV3d0U0dGM1lXbHBZVzR0VTJocGNuUnpMVTFsYmkxRGIzUjBiMjR0VEdsdVpXNHRSR1Z6YVdkdVpYSXRRbkpoYm1RdFUyeHBiUzFHYVhRdFRXRnVMVk5vYVhKMGN5MU1iMjVuTFZOc1pXVjJaUzFYYUdsMFpTMVRhR2x5ZEhNdWFuQm5MbU55Wkc5M2JteHZZV1FHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjUtMDQtMjlUMTM6MDQ6MjQuMDcxWiIsInB1ciI6ImJsb2Jfa2V5In19--355429626fa2a0886f9a0a3cfa821c4e38da3b1a/Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload" for 157.47.4.98 at 2025-04-29 12:59:24 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg"}
+web-1  | Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 329)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/new" for 157.47.4.98 at 2025-04-29 13:00:59 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#new as HTML
+web-1  |   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/new.html.erb within layouts/application
+web-1  |   Rendered categories/_form.html.erb (Duration: 3.0ms | Allocations: 631)
+web-1  |   Rendered categories/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 777)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2911)
+web-1  | Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 0.9ms | Allocations: 5285)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories" for 157.47.4.98 at 2025-04-29 13:04:20 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"specticals", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f2787825180 @tempfile=#<Tempfile:/tmp/RackMultipart20250429-1-j2axxb.webp>, @original_filename="2022-02-Agnes-B-09-small.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"category[image]\"; filename=\"2022-02-Agnes-B-09-small.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"save"}
+web-1  |   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "specticals"], ["user_id", 1], ["created_at", "2025-04-29 13:04:20.420595"], ["updated_at", "2025-04-29 13:04:20.420595"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "18rzkj0pkq6q1zzgy2pgtbr437bh"], ["filename", "2022-02-Agnes-B-09-small.webp"], ["content_type", "image/webp"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 58594], ["checksum", "vtBBAJgRpj9ATcNSZOxy+Q=="], ["created_at", "2025-04-29 13:04:20.430389"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Category"], ["record_id", 2], ["blob_id", 2], ["created_at", "2025-04-29 13:04:20.434297"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Update (0.6ms)[0m  [1m[33mUPDATE "categories" SET "updated_at" = $1 WHERE "categories"."id" = $2[0m  [["updated_at", "2025-04-29 13:04:20.436217"], ["id", 2]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  | [36m  Disk Storage (0.6ms) [0m[32mUploaded file to key: 18rzkj0pkq6q1zzgy2pgtbr437bh (checksum: vtBBAJgRpj9ATcNSZOxy+Q==)[0m
+web-1  | [ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 5dcac7e2-faf3-4669-96fb-697e2483b906) to Async(default) with arguments: #<GlobalID:0x00007f27860fc9e0 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/2>>
+web-1  | Redirected to http://43.204.150.89:3000/categories
+web-1  | Completed 302 Found in 44ms (ActiveRecord: 6.6ms | Allocations: 11681)
+web-1  | 
+web-1  | 
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906] Performing ActiveStorage::AnalyzeJob (Job ID: 5dcac7e2-faf3-4669-96fb-697e2483b906) from Async(default) enqueued at 2025-04-29T13:04:20Z with arguments: #<GlobalID:0x00007f27860771f0 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/2>>
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: 18rzkj0pkq6q1zzgy2pgtbr437bh[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906] Skipping image analysis because the ruby-vips gem isn't installed
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906]   [1m[36mActiveStorage::Blob Update (1.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906]   [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [5dcac7e2-faf3-4669-96fb-697e2483b906] Performed ActiveStorage::AnalyzeJob (Job ID: 5dcac7e2-faf3-4669-96fb-697e2483b906) from Async(default) in 39.84ms
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 13:04:20 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as TURBO_STREAM
+web-1  |   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (1.4ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 10.6ms | Allocations: 2892)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.3ms | Allocations: 2833)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 6736)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 8760)
+web-1  | Completed 200 OK in 31ms (Views: 21.1ms | ActiveRecord: 4.8ms | Allocations: 10894)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--da36a6099f4ac60a25ab5dcef9c4eaececdbd715/2022-02-Agnes-B-09-small.webp" for 157.47.4.98 at 2025-04-29 13:04:20 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::Blobs::RedirectController#show as */*
+web-1  |   Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--da36a6099f4ac60a25ab5dcef9c4eaececdbd715", "filename"=>"2022-02-Agnes-B-09-small"}
+web-1  |   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  | [36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: 18rzkj0pkq6q1zzgy2pgtbr437bh (http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVGh5ZW10cU1IQnJjVFp4TVhwNloza3ljR2QwWW5JME16ZGlhQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSXlNREl5TFRBeUxVRm5ibVZ6TFVJdE1Ea3RjMjFoYkd3dWQyVmljQ0k3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuTWpBeU1pMHdNaTFCWjI1bGN5MUNMVEE1TFhOdFlXeHNMbmRsWW5BR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5M1pXSndCanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjA5OjIwLjk1MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--34d9a6bf2dce5ef82820e2c10b7561d44b9ebf16/2022-02-Agnes-B-09-small.webp)[0m
+web-1  | Redirected to http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVGh5ZW10cU1IQnJjVFp4TVhwNloza3ljR2QwWW5JME16ZGlhQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSXlNREl5TFRBeUxVRm5ibVZ6TFVJdE1Ea3RjMjFoYkd3dWQyVmljQ0k3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuTWpBeU1pMHdNaTFCWjI1bGN5MUNMVEE1TFhOdFlXeHNMbmRsWW5BR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5M1pXSndCanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjA5OjIwLjk1MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--34d9a6bf2dce5ef82820e2c10b7561d44b9ebf16/2022-02-Agnes-B-09-small.webp
+web-1  | Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1082)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhSE55YVhscWFYSnRNR05xYTNOc01qUXpjemhyTm05dWJEQmlOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQWdvQmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVEyRnpkV0ZzTFVoaGQyRnBhV0Z1TFZOb2FYSjBjeTFOWlc0dFEyOTBkRzl1TFV4cGJtVnVMVVJsYzJsbmJtVnlMVUp5WVc1a0xWTnNhVzB0Um1sMExVMWhiaTFUYUdseWRITXRURzl1WnkxVGJHVmxkbVV0VjJocGRHVXRVMmhwY25SekxtcHdaeTVqY21SdmQyNXNiMkZrSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkRFlYTjFZV3d0U0dGM1lXbHBZVzR0VTJocGNuUnpMVTFsYmkxRGIzUjBiMjR0VEdsdVpXNHRSR1Z6YVdkdVpYSXRRbkpoYm1RdFUyeHBiUzFHYVhRdFRXRnVMVk5vYVhKMGN5MU1iMjVuTFZOc1pXVjJaUzFYYUdsMFpTMVRhR2x5ZEhNdWFuQm5MbU55Wkc5M2JteHZZV1FHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc5cGJXRm5aUzlxY0dWbkJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjUtMDQtMjlUMTM6MDQ6MjQuMDcxWiIsInB1ciI6ImJsb2Jfa2V5In19--355429626fa2a0886f9a0a3cfa821c4e38da3b1a/Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg.crdownload" for 157.47.4.98 at 2025-04-29 13:04:21 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Casual-Hawaiian-Shirts-Men-Cotton-Linen-Designer-Brand-Slim-Fit-Man-Shirts-Long-Sleeve-White-Shirts.jpg"}
+web-1  | Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 181)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVGh5ZW10cU1IQnJjVFp4TVhwNloza3ljR2QwWW5JME16ZGlhQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSXlNREl5TFRBeUxVRm5ibVZ6TFVJdE1Ea3RjMjFoYkd3dWQyVmljQ0k3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuTWpBeU1pMHdNaTFCWjI1bGN5MUNMVEE1TFhOdFlXeHNMbmRsWW5BR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5M1pXSndCanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjA5OjIwLjk1MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--34d9a6bf2dce5ef82820e2c10b7561d44b9ebf16/2022-02-Agnes-B-09-small.webp" for 157.47.4.98 at 2025-04-29 13:04:21 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"2022-02-Agnes-B-09-small"}
+web-1  | Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 168)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/new" for 157.47.4.98 at 2025-04-29 13:04:25 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#new as HTML
+web-1  |   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/new.html.erb within layouts/application
+web-1  |   Rendered categories/_form.html.erb (Duration: 0.9ms | Allocations: 554)
+web-1  |   Rendered categories/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 674)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2694)
+web-1  | Completed 200 OK in 10ms (Views: 4.7ms | ActiveRecord: 0.8ms | Allocations: 4805)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories" for 157.47.4.98 at 2025-04-29 13:05:53 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Basketball", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f27859bf538 @tempfile=#<Tempfile:/tmp/RackMultipart20250429-1-5qbuxc.webp>, @original_filename="wilson-nba-game-ball.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"category[image]\"; filename=\"wilson-nba-game-ball.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"save"}
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Create (1.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Basketball"], ["user_id", 1], ["created_at", "2025-04-29 13:05:53.843310"], ["updated_at", "2025-04-29 13:05:53.843310"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Blob Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "eartb839u9vnjkx5pzubxuncmhgp"], ["filename", "wilson-nba-game-ball.webp"], ["content_type", "image/webp"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 118618], ["checksum", "u9WGiFVU9dPEDswRRm+qVA=="], ["created_at", "2025-04-29 13:05:53.855980"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mActiveStorage::Attachment Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Category"], ["record_id", 3], ["blob_id", 3], ["created_at", "2025-04-29 13:05:53.858868"]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mCategory Update (0.3ms)[0m  [1m[33mUPDATE "categories" SET "updated_at" = $1 WHERE "categories"."id" = $2[0m  [["updated_at", "2025-04-29 13:05:53.861490"], ["id", 3]]
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  |   [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/categories_controller.rb:31:in `block in create'
+web-1  | [36m  Disk Storage (0.6ms) [0m[32mUploaded file to key: eartb839u9vnjkx5pzubxuncmhgp (checksum: u9WGiFVU9dPEDswRRm+qVA==)[0m
+web-1  | [ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f) to Async(default) with arguments: #<GlobalID:0x00007f278591a920 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/3>>
+web-1  | Redirected to http://43.204.150.89:3000/categories
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f]   [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  | Completed 302 Found in 41ms (ActiveRecord: 6.9ms | Allocations: 11184)
+web-1  | 
+web-1  | 
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f] Performing ActiveStorage::AnalyzeJob (Job ID: 1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f) from Async(default) enqueued at 2025-04-29T13:05:53Z with arguments: #<GlobalID:0x00007f27858fb5c0 @uri=#<URI::GID gid://budgy/ActiveStorage::Blob/3>>
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f] [36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: eartb839u9vnjkx5pzubxuncmhgp[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f] Skipping image analysis because the ruby-vips gem isn't installed
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f]   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f]   [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+web-1  | [ActiveJob] [ActiveStorage::AnalyzeJob] [1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f] Performed ActiveStorage::AnalyzeJob (Job ID: 1fbe5e8f-c6ee-4fd1-b1b7-5e1beed9286f) from Async(default) in 28.06ms
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 13:05:54 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as TURBO_STREAM
+web-1  |   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.2ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.8ms | Allocations: 2825)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.2ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.8ms | Allocations: 2833)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 5.8ms | Allocations: 2832)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 9602)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 11617)
+web-1  | Completed 200 OK in 34ms (Views: 25.0ms | ActiveRecord: 3.7ms | Allocations: 13722)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a0768a99a35d9de383a6eac521e68e591ae418e0/wilson-nba-game-ball.webp" for 157.47.4.98 at 2025-04-29 13:05:54 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::Blobs::RedirectController#show as */*
+web-1  |   Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a0768a99a35d9de383a6eac521e68e591ae418e0", "filename"=>"wilson-nba-game-ball"}
+web-1  |   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  | [36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: eartb839u9vnjkx5pzubxuncmhgp (http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaV0Z5ZEdJNE16bDFPWFp1YW10NE5YQjZkV0o0ZFc1amJXaG5jQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpWVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZDNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0Jqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjEwOjU0Ljg3N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--4062e27d8325a318f29706843ba149d7bf684748/wilson-nba-game-ball.webp)[0m
+web-1  | Redirected to http://43.204.150.89:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaV0Z5ZEdJNE16bDFPWFp1YW10NE5YQjZkV0o0ZFc1amJXaG5jQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpWVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZDNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0Jqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjEwOjU0Ljg3N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--4062e27d8325a318f29706843ba149d7bf684748/wilson-nba-game-ball.webp
+web-1  | Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1259)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaV0Z5ZEdJNE16bDFPWFp1YW10NE5YQjZkV0o0ZFc1amJXaG5jQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpWVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZDNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0Jqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjEwOjU0Ljg3N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--4062e27d8325a318f29706843ba149d7bf684748/wilson-nba-game-ball.webp" for 157.47.4.98 at 2025-04-29 13:05:55 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"wilson-nba-game-ball"}
+web-1  | Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 168)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1" for 157.47.4.98 at 2025-04-29 13:05:57 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as HTML
+web-1  |   Parameters: {"id"=>"1"}
+web-1  |   [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.5ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 10.0ms | Allocations: 2631)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 8257)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 10267)
+web-1  | Completed 200 OK in 34ms (Views: 21.2ms | ActiveRecord: 4.5ms | Allocations: 13992)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1/records/new" for 157.47.4.98 at 2025-04-29 13:06:03 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#new as HTML
+web-1  |   Parameters: {"category_id"=>"1"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:20:in `new'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/new.html.erb within layouts/application
+web-1  |   Rendered records/_form.html.erb (Duration: 3.8ms | Allocations: 1918)
+web-1  |   Rendered records/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2660)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4895)
+web-1  | Completed 200 OK in 18ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 11809)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories/1/records" for 157.47.4.98 at 2025-04-29 13:06:17 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "record"=>{"name"=>"Clothes", "amount"=>"500"}, "commit"=>"save", "category_id"=>"1"}
+web-1  |   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:27:in `create'
+web-1  |   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mRecord Create (0.9ms)[0m  [1m[32mINSERT INTO "records" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Clothes"], ["amount", "500.0"], ["user_id", 1], ["created_at", "2025-04-29 13:06:17.119832"], ["updated_at", "2025-04-29 13:06:17.119832"]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mCategoryRecord Create (0.9ms)[0m  [1m[32mINSERT INTO "category_records" ("category_id", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 1], ["record_id", 1], ["created_at", "2025-04-29 13:06:17.134300"], ["updated_at", "2025-04-29 13:06:17.134300"]]
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  | Redirected to http://43.204.150.89:3000/categories/1
+web-1  | Completed 302 Found in 38ms (ActiveRecord: 10.2ms | Allocations: 13131)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1" for 157.47.4.98 at 2025-04-29 13:06:17 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as TURBO_STREAM
+web-1  |   Parameters: {"id"=>"1"}
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 5.9ms | Allocations: 2687)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   Rendered records/_record.html.erb (Duration: 1.3ms | Allocations: 303)
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 15.1ms | Allocations: 6920)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 8932)
+web-1  | Completed 200 OK in 26ms (Views: 18.8ms | ActiveRecord: 1.7ms | Allocations: 12016)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1/records/1" for 157.47.4.98 at 2025-04-29 13:06:21 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#show as HTML
+web-1  |   Parameters: {"category_id"=>"1", "id"=>"1"}
+web-1  |   [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:70:in `set_record'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:13:in `show'
+web-1  |   [1m[36mRecord Load (1.4ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 AND "records"."id" = $2 LIMIT $3[0m  [["category_id", 1], ["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/show.html.erb within layouts/application
+web-1  |   Rendered records/_record.html.erb (Duration: 0.1ms | Allocations: 33)
+web-1  |   Rendered records/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1826)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3836)
+web-1  | Completed 200 OK in 16ms (Views: 5.8ms | ActiveRecord: 2.0ms | Allocations: 9172)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1/records/1/edit" for 157.47.4.98 at 2025-04-29 13:06:27 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#edit as HTML
+web-1  |   Parameters: {"category_id"=>"1", "id"=>"1"}
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:70:in `set_record'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/edit.html.erb within layouts/application
+web-1  |   Rendered records/_form.html.erb (Duration: 1.0ms | Allocations: 799)
+web-1  |   Rendered records/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1215)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3235)
+web-1  | Completed 200 OK in 13ms (Views: 5.8ms | ActiveRecord: 0.6ms | Allocations: 6602)
+web-1  | 
+web-1  | 
+web-1  | Started PATCH "/categories/1/records/1" for 157.47.4.98 at 2025-04-29 13:06:35 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#update as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "record"=>{"name"=>"Clothes", "amount"=>"20.0"}, "commit"=>"save", "category_id"=>"1", "id"=>"1"}
+web-1  |   [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:70:in `set_record'
+web-1  |   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:47:in `block in update'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:47:in `block in update'
+web-1  |   [1m[36mRecord Update (0.2ms)[0m  [1m[33mUPDATE "records" SET "amount" = $1, "updated_at" = $2 WHERE "records"."id" = $3[0m  [["amount", "20.0"], ["updated_at", "2025-04-29 13:06:35.519899"], ["id", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:47:in `block in update'
+web-1  |   [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:47:in `block in update'
+web-1  | Redirected to http://43.204.150.89:3000/categories/1/records/1
+web-1  | Completed 302 Found in 27ms (ActiveRecord: 4.0ms | Allocations: 6340)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1/records/1" for 157.47.4.98 at 2025-04-29 13:06:35 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#show as TURBO_STREAM
+web-1  |   Parameters: {"category_id"=>"1", "id"=>"1"}
+web-1  |   [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:70:in `set_record'
+web-1  |   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:13:in `show'
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 AND "records"."id" = $2 LIMIT $3[0m  [["category_id", 1], ["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/show.html.erb within layouts/application
+web-1  |   Rendered records/_record.html.erb (Duration: 0.1ms | Allocations: 29)
+web-1  |   Rendered records/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 422)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2433)
+web-1  | Completed 200 OK in 36ms (Views: 11.2ms | ActiveRecord: 1.9ms | Allocations: 7133)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/1" for 157.47.4.98 at 2025-04-29 13:06:40 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as HTML
+web-1  |   Parameters: {"id"=>"1"}
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.8ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 23.5ms | Allocations: 2629)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   Rendered records/_record.html.erb (Duration: 0.1ms | Allocations: 28)
+web-1  |   [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 35.6ms | Allocations: 6466)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 8476)
+web-1  | Completed 200 OK in 62ms (Views: 39.8ms | ActiveRecord: 3.3ms | Allocations: 11505)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 13:06:43 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as HTML
+web-1  |   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.6ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 7.9ms | Allocations: 2827)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.7ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 5.8ms | Allocations: 2833)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.7ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 5.3ms | Allocations: 2832)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 25.9ms | Allocations: 9599)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 11626)
+web-1  | Completed 200 OK in 59ms (Views: 25.8ms | ActiveRecord: 5.1ms | Allocations: 13738)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNVGh5ZW10cU1IQnJjVFp4TVhwNloza3ljR2QwWW5JME16ZGlhQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpYVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSXlNREl5TFRBeUxVRm5ibVZ6TFVJdE1Ea3RjMjFoYkd3dWQyVmljQ0k3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuTWpBeU1pMHdNaTFCWjI1bGN5MUNMVEE1TFhOdFlXeHNMbmRsWW5BR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5M1pXSndCanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjA5OjIwLjk1MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--34d9a6bf2dce5ef82820e2c10b7561d44b9ebf16/2022-02-Agnes-B-09-small.webp" for 157.47.4.98 at 2025-04-29 13:06:44 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"2022-02-Agnes-B-09-small"}
+web-1  | Completed 304 Not Modified in 0ms (ActiveRecord: 0.0ms | Allocations: 204)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaV0Z5ZEdJNE16bDFPWFp1YW10NE5YQjZkV0o0ZFc1amJXaG5jQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpWVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0lqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZDNhV3h6YjI0dGJtSmhMV2RoYldVdFltRnNiQzUzWldKd0Jqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDI1LTA0LTI5VDEzOjEwOjU0Ljg3N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--4062e27d8325a318f29706843ba149d7bf684748/wilson-nba-game-ball.webp" for 157.47.4.98 at 2025-04-29 13:06:44 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by ActiveStorage::DiskController#show as */*
+web-1  |   Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"wilson-nba-game-ball"}
+web-1  | Completed 304 Not Modified in 0ms (ActiveRecord: 0.0ms | Allocations: 179)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/2" for 157.47.4.98 at 2025-04-29 13:06:46 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as HTML
+web-1  |   Parameters: {"id"=>"2"}
+web-1  |   [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.2ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.6ms | Allocations: 2624)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 6279)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 8289)
+web-1  | Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 1.6ms | Allocations: 11309)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/2/records/new" for 157.47.4.98 at 2025-04-29 13:06:49 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#new as HTML
+web-1  |   Parameters: {"category_id"=>"2"}
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:20:in `new'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/new.html.erb within layouts/application
+web-1  |   Rendered records/_form.html.erb (Duration: 1.4ms | Allocations: 746)
+web-1  |   Rendered records/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 930)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2954)
+web-1  | Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 1.2ms | Allocations: 6187)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories/2/records" for 157.47.4.98 at 2025-04-29 13:07:09 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "record"=>{"name"=>"spectacle", "amount"=>"10"}, "commit"=>"save", "category_id"=>"2"}
+web-1  |   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:27:in `create'
+web-1  |   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mRecord Create (0.8ms)[0m  [1m[32mINSERT INTO "records" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "spectacle"], ["amount", "10.0"], ["user_id", 1], ["created_at", "2025-04-29 13:07:09.665548"], ["updated_at", "2025-04-29 13:07:09.665548"]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mCategoryRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "category_records" ("category_id", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 2], ["record_id", 2], ["created_at", "2025-04-29 13:07:09.670362"], ["updated_at", "2025-04-29 13:07:09.670362"]]
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  | Redirected to http://43.204.150.89:3000/categories/2
+web-1  | Completed 302 Found in 21ms (ActiveRecord: 5.8ms | Allocations: 8149)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/2" for 157.47.4.98 at 2025-04-29 13:07:09 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as TURBO_STREAM
+web-1  |   Parameters: {"id"=>"2"}
+web-1  |   [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.7ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.9ms | Allocations: 2638)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   Rendered records/_record.html.erb (Duration: 0.1ms | Allocations: 28)
+web-1  |   [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 6486)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 8510)
+web-1  | Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 2.3ms | Allocations: 11530)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 13:07:13 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as HTML
+web-1  |   [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 10.9ms | Allocations: 2827)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.7ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.8ms | Allocations: 2837)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (1.4ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 7.1ms | Allocations: 2832)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 28.9ms | Allocations: 9603)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 11613)
+web-1  | Completed 200 OK in 44ms (Views: 30.0ms | ActiveRecord: 6.8ms | Allocations: 13690)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/3" for 157.47.4.98 at 2025-04-29 13:07:15 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as HTML
+web-1  |   Parameters: {"id"=>"3"}
+web-1  |   [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 4.5ms | Allocations: 2624)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 10.7ms | Allocations: 6279)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 8289)
+web-1  | Completed 200 OK in 19ms (Views: 13.4ms | ActiveRecord: 1.6ms | Allocations: 11303)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/3/records/new" for 157.47.4.98 at 2025-04-29 13:07:17 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#new as HTML
+web-1  |   Parameters: {"category_id"=>"3"}
+web-1  |   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:20:in `new'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering records/new.html.erb within layouts/application
+web-1  |   Rendered records/_form.html.erb (Duration: 1.3ms | Allocations: 746)
+web-1  |   Rendered records/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 930)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2950)
+web-1  | Completed 200 OK in 12ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 6214)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/categories/3/records" for 157.47.4.98 at 2025-04-29 13:07:34 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by RecordsController#create as TURBO_STREAM
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "record"=>{"name"=>"Basketball", "amount"=>"15"}, "commit"=>"save", "category_id"=>"3"}
+web-1  |   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:27:in `create'
+web-1  |   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Basketball"], ["amount", "15.0"], ["user_id", 1], ["created_at", "2025-04-29 13:07:34.930004"], ["updated_at", "2025-04-29 13:07:34.930004"]]
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:30:in `create'
+web-1  |   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mCategoryRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "category_records" ("category_id", "record_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 3], ["record_id", 3], ["created_at", "2025-04-29 13:07:34.938301"], ["updated_at", "2025-04-29 13:07:34.938301"]]
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  |   [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+web-1  |   ↳ app/controllers/records_controller.rb:35:in `block in create'
+web-1  | Redirected to http://43.204.150.89:3000/categories/3
+web-1  | Completed 302 Found in 25ms (ActiveRecord: 8.8ms | Allocations: 8113)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories/3" for 157.47.4.98 at 2025-04-29 13:07:35 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#show as TURBO_STREAM
+web-1  |   Parameters: {"id"=>"3"}
+web-1  |   [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:65:in `set_category'
+web-1  |   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/controllers/categories_controller.rb:14:in `show'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/show.html.erb within layouts/application
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.3ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.4ms | Allocations: 2629)
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mCACHE Record Sum (0.0ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:47
+web-1  |   [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1 ORDER BY "records"."created_at" DESC[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:52
+web-1  |   Rendered records/_record.html.erb (Duration: 0.1ms | Allocations: 28)
+web-1  |   [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/views/categories/show.html.erb:66:in `map'
+web-1  |   Rendered categories/show.html.erb within layouts/application (Duration: 17.1ms | Allocations: 6471)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 8486)
+web-1  | Completed 200 OK in 29ms (Views: 20.7ms | ActiveRecord: 3.7ms | Allocations: 11528)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/categories" for 157.47.4.98 at 2025-04-29 13:07:37 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by CategoriesController#index as HTML
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 1]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.2ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 1]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 5.2ms | Allocations: 2827)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.1ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 2]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 8.1ms | Allocations: 2837)
+web-1  |   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Category"], ["name", "image"], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+web-1  |   ↳ app/views/categories/_category.html.erb:3
+web-1  |   [1m[36mRecord Sum (0.1ms)[0m  [1m[34mSELECT SUM("records"."amount") FROM "records" INNER JOIN "category_records" ON "records"."id" = "category_records"."record_id" WHERE "category_records"."category_id" = $1[0m  [["category_id", 3]]
+web-1  |   ↳ app/models/category.rb:11:in `total_amount'
+web-1  |   Rendered categories/_category.html.erb (Duration: 6.0ms | Allocations: 2837)
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 22.9ms | Allocations: 9605)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 11615)
+web-1  | Completed 200 OK in 31ms (Views: 24.3ms | ActiveRecord: 2.5ms | Allocations: 13714)
+web-1  | 
+web-1  | 
+web-1  | 2025-04-29 13:10:07 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  | 2025-04-29 13:10:07 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 13:10:08 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 104)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2147)
+web-1  | Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 2419)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | 2025-04-29 13:10:16 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  | 2025-04-29 13:10:17 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  | Started GET "/users/sign_up" for 157.47.4.98 at 2025-04-29 13:10:17 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#new as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/registrations/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 21)
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 81)
+web-1  |   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1300)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3336)
+web-1  | Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 3921)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/users" for 157.47.4.98 at 2025-04-29 13:10:42 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Rama", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up"}
+web-1  | [31mUnpermitted parameter: :posts_counter. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f2785a4c938>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Rama", "email"=>"ramakrishnaragi1999@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+web-1  |   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+web-1  |   [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ramakrishnaragi1999@gmail.com"], ["LIMIT", 1]]
+web-1  |   [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/registrations/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 494)
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 81)
+web-1  |   Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2250)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4283)
+web-1  | Completed 200 OK in 298ms (Views: 7.1ms | ActiveRecord: 2.1ms | Allocations: 9263)
+web-1  | 
+web-1  | 
+web-1  | 2025-04-29 13:10:42 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | 2025-04-29 13:10:44 +0000 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+web-1  | Started POST "/users" for 157.47.4.98 at 2025-04-29 13:11:14 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::RegistrationsController#create as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Rama", "email"=>"www.ram@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up"}
+web-1  | [31mUnpermitted parameter: :posts_counter. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f278544a5d0>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Rama", "email"=>"www.ram@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "posts_counter"=>"0"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+web-1  |   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+web-1  |   [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "www.ram@gmail.com"], ["LIMIT", 1]]
+web-1  |   [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Rama"], ["created_at", "2025-04-29 13:11:14.741684"], ["updated_at", "2025-04-29 13:11:14.741684"], ["email", "www.ram@gmail.com"], ["encrypted_password", "$2a$12$qWsYVTfvW7kur8drijmQaeFwd9hHolSol1ut/xrS88i4Y5UPn7L3y"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil]]
+web-1  |   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+web-1  | Redirected to http://43.204.150.89:3000/
+web-1  | Completed 302 Found in 290ms (ActiveRecord: 3.1ms | Allocations: 5727)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 13:11:15 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  |   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  | Processing by CategoriesController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering categories/index.html.erb within layouts/application
+web-1  |   [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."user_id" = $1[0m  [["user_id", 2]]
+web-1  |   ↳ app/views/categories/index.html.erb:12
+web-1  |   Rendered categories/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 741)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2757)
+web-1  | Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 3539)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started GET "/users/sign_out" for 157.47.4.98 at 2025-04-29 13:11:38 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#destroy as HTML
+web-1  |   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+web-1  | Redirected to http://43.204.150.89:3000/
+web-1  | Completed 302 Found in 15ms (ActiveRecord: 0.8ms | Allocations: 5130)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 157.47.4.98 at 2025-04-29 13:11:39 +0000
+web-1  | Cannot render console from 157.47.4.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 122)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2285)
+web-1  | Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2603)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 106.200.25.11 at 2025-04-29 13:13:17 +0000
+web-1  | Cannot render console from 106.200.25.11! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by SplashController#index as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering splash/index.html.erb within layouts/application
+web-1  |   Rendered splash/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 104)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2142)
+web-1  | Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2412)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+web-1  |   
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+web-1  |   
+web-1  | Started GET "/users/sign_in" for 106.200.25.11 at 2025-04-29 13:13:30 +0000
+web-1  | Cannot render console from 106.200.25.11! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+web-1  | Processing by Devise::SessionsController#new as HTML
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering devise/sessions/new.html.erb within layouts/application
+web-1  |   Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 130)
+web-1  |   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 800)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2836)
+web-1  | Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 3482)
+web-1  | 
+web-1  | 
