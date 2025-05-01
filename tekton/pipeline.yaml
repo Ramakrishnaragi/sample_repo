@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-push
+spec:
+  tasks:
+    - name: build-image
+      taskRef:
+        name: kaniko
+      params:
+        - name: IMAGE
+          value: docker.io/<your-dockerhub-username>/rails-app
+        - name: CONTEXT
+          value: https://github.com/<your-username>/<public-fork>.git
+

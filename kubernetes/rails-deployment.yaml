@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rails
+  template:
+    metadata:
+      labels:
+        app: rails
+    spec:
+      containers:
+        - name: rails
+          image: <your-dockerhub-username>/rails-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: postgres://postgres:password@postgres:5432/postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rails-service
+spec:
+  selector:
+    app: rails
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
