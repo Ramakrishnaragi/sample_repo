@@ -21,12 +21,14 @@
 ![login-page](https://github.com/user-attachments/assets/7e4f57cb-3ec9-43a8-a52e-70ea99662ff1)
 
 
-    Categories
-![](./app/assets/images/img1.png) 
+# Categories
+![after login](https://github.com/user-attachments/assets/0044d6f7-4381-45cc-99dd-565603ecc5d6)
+
 
 
     Category-Details 
-![](./app/assets/images/img5.png) 
+![final output](https://github.com/user-attachments/assets/4ee034d1-7bd0-404b-a1ed-01598b6ec7e8)
+
 
 
 
@@ -50,9 +52,6 @@
 - Limit access to webapp resources based on authorization rules.
 - Analyze in writing why you have made a coding choice using one structure over another.
 
-## Live Demo 🔗
-
-[Live Demo Link](https://budgy-budget-api.herokuapp.com/)
 
 ## Loom Video 🔗
 
@@ -155,7 +154,7 @@ $  rails db:reset #to clean the database
 
 #### Listing Existing Routes
 
-- You can now visit `http://localhost:3000` to view your new website!
+- You can now visit `http://localhost:3000` or <http://ec2-user-ip>:3000 to view your new website!
 
  You can also execute the `rails routes` command in your terminal to produce the same output.
 
@@ -230,13 +229,8 @@ This project is build with:
 -  ![Ruby](https://img.shields.io/badge/-Ruby-000000?style=flat&logo=ruby&logoColor=red)
 -  ![Ruby on Rails](https://img.shields.io/badge/-Ruby_on_Rails-000000?style=flat&logo=ruby-on-rails&logoColor=blue)
 
-## Authors
 
-👤 **Evans Sitibekiso**
 
-- GitHub: [@evans22j](https://github.com/evans22j)
-- Twitter: [@Evans_22J](https://twitter.com/Evans_22J)
-- LinkedIn: [@Evans Sitibekiso](https://www.linkedin.com/in/evans-sitibekiso/)
 
 ## 🤝 Contributor
 
@@ -254,6 +248,3 @@ Give a ⭐️ if you like this project!
 - Credit to [Gregoire Vella on Behance](https://www.behance.net/gregoirevella), the author of the original [design guidelines](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
 
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
